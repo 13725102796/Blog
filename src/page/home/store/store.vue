@@ -19,14 +19,23 @@
         </transition>
       </div>
     </div>
-    <shop-card />
-    <shop-card />
+    <div id="loading"></div>
+    <shop-card 
+      v-for="(item, index) in ktvStore" :key="index"
+      :shopData = "{
+        title: item.store_announcement,
+        address: item.detail_address,
+        pic: item.store_logo_url
+      }"
+    />
+    <!-- <shop-card /> -->
     <div class="mask" v-if="tag !== 'Store'" @click="back"></div>
   </div>
 </template>
 <script>
 import Header from '@/commond/header.vue'
 import ShopCard from '@/components/ShopCard.vue'
+import { mapState } from 'vuex'
 export default {
   name: 'Store',
   components: {
@@ -42,6 +51,11 @@ export default {
       select: '筛选'
     }
   },
+  computed: {
+    ...mapState([
+      'ktvStore'
+    ])
+  },
   methods: {
     handleNav(tag) { 
       this.tag = this.tag === tag ? 'Store' : tag
@@ -56,7 +70,17 @@ export default {
       this.tag = 'Store'
       this.$router.push({name: this.tag})
     }
-
+  },
+  beforeCreate(){
+    
+  },
+  created(){
+       
+  },
+  async mounted(){
+    this.$loading()
+   await this.$store.dispatch('getKtvStore')
+    // console.log(this.ktvStore)
   }
 }
 </script>

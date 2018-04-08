@@ -4,8 +4,8 @@ import qs from 'qs'
 
 // axios 配置
 const BASE_URL = 'http://dev-home.365mdb.com/'
-const URL = process.env.NODE_ENV === 'production' ? '/' : BASE_URL
-
+// const URL = process.env.NODE_ENV === 'production' ? '/' : BASE_URL
+const URL = BASE_URL
 //发送一般请求
 const http = axios.create({
   timeout: 5000,
@@ -22,22 +22,19 @@ const formConfig = {
   }
 }
 
-http.interceptors.request.use(config => {
-  // Do something before request is sent
-  return config
-}, err => {
-  return Promise.reject(error);
-})
+// http.interceptors.request.use(config => {
+//   // Do something before request is sent
+//   return config
+// }, err => {
+//   return Promise.reject(error);
+// })
 
 const vm = new Vue()
 
-function result () {
-
-}
 
 export default {
-  async get( url ,params = {}){
-    return new Promise ((resolve, reject) => {
+  get( url ,params = {}){
+    return new Promise (async (resolve, reject) => {
       try {
         const data = await http.get(url,{params})
         const code = Number(data.data.errorCode)
@@ -51,8 +48,8 @@ export default {
       }
     }) 
   }, 
-  async post(url, params = {} ) {
-    return new Promise((resolve, reject) => {
+  post(url, params = {} ) {
+    return new Promise(async (resolve, reject) => {
       try {
         const data = await http.post(url, qs.stringify(params))
         const code = Number(data.data.errorCode)
@@ -74,8 +71,8 @@ export default {
     })
   },
 
-  async form(url, params={}) {
-    return Promise((reslove, reject) => {
+  form(url, params={}) {
+    return Promise(async (reslove, reject) => {
       try{
         const data = http.post(url,params,formConfig)
         const code = Number(data.data.errorCode)

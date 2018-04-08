@@ -10,7 +10,7 @@ const debug = process.env.NODE_ENV !== 'production'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-
+      ktvStore: []
     },
     getters,
     actions,

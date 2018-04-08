@@ -6,9 +6,13 @@ import router from './router'
 import store from './store'
 //commond css
 import '@/assets/css/init.css'
-// import '@/assets/css/mixin.sass'
 import '@/assets/js/rem.js'
+// plugins
+import loading from '@/plugins/loading/loading.js'
 
+
+// 注册全局
+Vue.use(loading)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

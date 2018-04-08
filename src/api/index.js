@@ -5,6 +5,9 @@ class API {
   // getCityList = params => {
   //   return http.post('api_home_admin/get_city_list', params)
   // }
+  getKtvStore = (lat, lng) => {
+    return http.post('ktv/getStore',{lat:lat,lng:lng})
+  }
 }
 
 export default new API()

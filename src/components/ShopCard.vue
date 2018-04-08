@@ -3,11 +3,11 @@
     <div class="m-box">
       <div class="flex">
         <div class="left">
-          <img src="./../assets/img/like.jpg">
+          <img :src="shopData.pic">
         </div>
         <div class="right">
           <div class="name clearfix">
-            <p class="f-left">华莱士就会发生空间的话费卡科技时代开发士大夫似da</p>
+            <p class="f-left">{{shopData.title}}</p>
           </div>
           <div class="desc">
             <Star />
@@ -18,7 +18,7 @@
               <span class="price"><strong>19.9</strong>元起</span>
               <!-- <span class="discount">5.9折</span> -->
             </div>
-            <div class="f-right">白云绿地中心</div>         
+            <div class="f-right">{{shopData.address}}</div>         
           </div>
         </div>
       </div>
@@ -30,21 +30,32 @@
   </div>
 </template>
 <script>
+/** 
+ *  shopData 只接受该组件使用的数据 如： title pic address
+*/
 import Star from '@/components/Star.vue'
 export default {
   name: 'ShopCard',
   components: {
     Star
   },
+  // data(){
+  //   return{
+  //     title: store_logo_url
+  //   }
+  // },
   props: {
     shopData: {
       types: Array,
-      default() {
-        return {
+      // default() {
+      //   return {
           
-        }
-      }
+      //   }
+      // }
     }
+  },
+  created(){
+    console.log(this.shopData)
   }
 }
 </script>
@@ -99,6 +110,7 @@ export default {
       .name   
         // margin-top: 4px
         .f-left
+          text-align: left
           color: $title-color
           font-weight: normal
           width: 100%
@@ -106,7 +118,6 @@ export default {
           overflow: hidden
           text-overflow: ellipsis
           white-space: nowrap
-          margin-left: -5px
       .desc
       .price
         .f-left
@@ -130,9 +141,12 @@ export default {
             border-radius: 2px
             // margin-top: -4px
         .f-right
+          width: 40%
+          +no-wrap
           color: $desc-color
           font-size: $small-size
           vertical-align: bottom
+          text-align: right
 
 </style>
 

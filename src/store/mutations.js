@@ -3,4 +3,7 @@ export default {
   // SET_ADDRESS: (state, address) => {
   //   state.address = address
   // },
+  SET_KTVSTORE: (state, data) => {
+    state.ktvStore = data
+  }
 }

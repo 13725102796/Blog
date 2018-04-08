@@ -42,9 +42,9 @@
     <section class="more">
       <p class="m-title">—— 猜你喜欢 ——</p>
       <!-- <GoodCard /> -->
+      <!-- <shop-card />
       <shop-card />
-      <shop-card />
-      <shop-card />
+      <shop-card /> -->
     </section>
     <section class="bottom"></section>
     <Footer :tag="'1'" />
@@ -80,7 +80,26 @@ export default {
         }
       }
     }
+  },
+  created() {
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
+    }
+    else{
+      console.log('浏览器不支持')
+    }
+  },
+  methods: {
+    showPosition(position) {
+      console.log(position.coords)
+    },
+    showError(error){
+      console.log(error)
+    }
   }
+
+
+  
 }
 </script>
 <style lang="sass" scoped>
