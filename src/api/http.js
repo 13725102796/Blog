@@ -4,8 +4,10 @@ import qs from 'qs'
 
 // axios 配置
 const BASE_URL = 'http://dev-home.365mdb.com/'
-// const URL = process.env.NODE_ENV === 'production' ? '/' : BASE_URL
-const URL = BASE_URL
+const TEST_URL = 'http://rap2api.taobao.org/app/mock/8443'
+// console.log(process.env.NODE_ENV)
+const URL = process.env.NODE_ENV === 'development' ? TEST_URL : BASE_URL
+// const URL = BASE_URL
 //发送一般请求
 const http = axios.create({
   timeout: 5000,

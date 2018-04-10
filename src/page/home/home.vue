@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper Home">
+    <Scroll :on-infinite="onInfinite">
     <section class="swiperBox">
       <div class="top-swiper">
         <swiper :options="swiperOption">
@@ -43,9 +44,28 @@
       <p class="m-title">—— 猜你喜欢 ——</p>
       <!-- <GoodCard /> -->
       <!-- <shop-card />
+      
       <shop-card />
       <shop-card /> -->
+      <div class="like-box">
+        
+          <!-- <a v-for="(item, index) in ktvStore" :key="index" :href="'http://'+item.store_id+'.dev-ktv.ffun360.com?webarea=ktv'"> -->
+            <shop-card 
+              v-for="item in like" :key="item.store_id"
+              :shopData = "{
+                title: item.title,
+                address: item.address,
+                pic: item.pic
+              }"
+            />
+          <!-- </a> -->
+        
+      </div>
     </section>
+    
+    
+    
+    </Scroll>
     <section class="bottom"></section>
     <Footer :tag="'1'" />
   </div>
@@ -56,6 +76,8 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import GoodCard from '@/components/GoodCard.vue'
 import ShopCard from '@/components/ShopCard.vue'
+import { mapState } from 'vuex'
+import Scroll from '@/plugins/scroll/infinite.vue'
 export default {
   name: 'Home',
   components: {
@@ -63,7 +85,13 @@ export default {
     swiper,
     swiperSlide,
     GoodCard,
-    ShopCard
+    ShopCard,
+    Scroll
+  },
+  computed: {
+    ...mapState([
+      'like'
+    ])
   },
   data() {
     return {
@@ -82,12 +110,12 @@ export default {
     }
   },
   created() {
-    if (navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
-    }
-    else{
-      console.log('浏览器不支持')
-    }
+    // if (navigator.geolocation){
+    //   navigator.geolocation.getCurrentPosition(this.showPosition,this.showError);
+    // }
+    // else{
+    //   console.log('浏览器不支持')
+    // }
   },
   methods: {
     showPosition(position) {
@@ -95,7 +123,22 @@ export default {
     },
     showError(error){
       console.log(error)
-    }
+    },
+    onInfinite(done) {
+      var data = []
+      setTimeout(()=>{  
+        data.length === 0 ? done(0) : done()
+        this.$toast('已经滑到底了喔！')    
+      },1000)
+    },
+  }, 
+  async created(){
+    if(this.like.length === 0 ) {
+      setTimeout(()=>{  
+        this.$store.dispatch('getLike')
+      },1000)
+    }    
+    
   }
 
 

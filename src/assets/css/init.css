@@ -87,5 +87,7 @@ html {
 }
 
 .bottom {
-  height: 1.8rem
+  height: 1rem;
+  position: relative;
+  bottom: 0;
 }

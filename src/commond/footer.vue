@@ -57,7 +57,7 @@ export default {
   @mixin color  
     color: red
   #container
-    padding: 3px 0
+    padding: 5px 0
     position: fixed
     left: 0
     right: 0

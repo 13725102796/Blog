@@ -5,5 +5,11 @@ export default {
   // },
   SET_KTVSTORE: (state, data) => {
     state.ktvStore = data
+  },
+  SET_LIKE: (state, data) => {
+    // console.log(state.like)
+    state.like = state.like.concat(data)
+    // state.like= [...data]
+    console.log(state.like) 
   }
 }

@@ -55,8 +55,12 @@ export default {
     }
   },
   created(){
-    console.log(this.shopData)
+    // console.log(this.shopData)
+  },
+  mounted() {
+    // this.$loading(false)
   }
+  
 }
 </script>
 <style lang="sass" scoped>

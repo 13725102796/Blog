@@ -18,7 +18,7 @@
 @mixin border-line ($px, $direction)
   border-#{$direction}: $px solid $border-color
 
-@mixin mask
+@mixin mask($color:#e2e2e2c7)
   padding: 6px 0
   z-index: 20
   position: fixed
@@ -26,7 +26,11 @@
   left: 0
   right: 0
   bottom: .2rem
-  background: #e2e2e2c7
+  background: $color
+
+@mixin animation ($name)
+  -webkit-animation: $name 1s ease infinite 
+    
 
 
 

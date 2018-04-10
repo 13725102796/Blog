@@ -19,28 +19,38 @@
         </transition>
       </div>
     </div>
-    <div id="loading"></div>
-    <shop-card 
-      v-for="(item, index) in ktvStore" :key="index"
-      :shopData = "{
-        title: item.store_announcement,
-        address: item.detail_address,
-        pic: item.store_logo_url
-      }"
-    />
+    <!-- <div id="loading"></div> -->
+    <div class="card-box">
+      <Scroll :on-refresh="onRefresh" :on-infinite="onInfinite" >
+        <!-- <a v-for="(item, index) in ktvStore" :key="index" :href="'http://'+item.store_id+'.dev-ktv.ffun360.com?webarea=ktv'"> -->
+          <shop-card 
+            v-for="item in ktvStore" :key="item.store_id"
+            :shopData = "{
+              title: item.store_announcement,
+              address: item.detail_address,
+              pic: item.store_logo_url
+            }"
+          />
+        <!-- </a> -->
+      </Scroll>
+    </div>
+
     <!-- <shop-card /> -->
     <div class="mask" v-if="tag !== 'Store'" @click="back"></div>
+    <!-- <div class="bottom"></div> -->
   </div>
 </template>
 <script>
 import Header from '@/commond/header.vue'
 import ShopCard from '@/components/ShopCard.vue'
 import { mapState } from 'vuex'
+import Scroll from '@/plugins/scroll/scroll.vue'
 export default {
   name: 'Store',
   components: {
     Header,
-    ShopCard
+    ShopCard,
+    Scroll
   },
   data(){
     return {
@@ -48,7 +58,14 @@ export default {
       classify: '全部',
       near: '附近',
       sort: '智能排序',
-      select: '筛选'
+      select: '筛选',
+      // scroll 需要的参数
+      counter : 1, //默认已经显示出15条数据 count等于一是让从16条开始加载
+      // num : 15,  // 一次显示多少条
+      // pageStart : 0, // 开始页数
+      // pageEnd : 0, // 结束页数
+      listdata: [], // 下拉更新数据存放数组
+      downdata: []  // 上拉更多的数据存放数组
     }
   },
   computed: {
@@ -69,17 +86,26 @@ export default {
     back(){
       this.tag = 'Store'
       this.$router.push({name: this.tag})
-    }
-  },
-  beforeCreate(){
-    
-  },
-  created(){
-       
+    },
+    onRefresh(done) {
+      //接受一个done的回调函数 ，请求完数据后，就调用
+      // this.getList();
+      setTimeout(()=>{
+        done()
+      },3000)
+       // call done  
+    },
+    onInfinite(done) {
+      var data = []
+      setTimeout(()=>{     
+        if(data.length === 0) return done(0) 
+        done()
+      },3000)
+    },
   },
   async mounted(){
-    this.$loading()
-   await this.$store.dispatch('getKtvStore')
+    // this.$loading()
+    await this.$store.dispatch('getKtvStore')
     // console.log(this.ktvStore)
   }
 }
@@ -125,7 +151,7 @@ export default {
 .mask 
   +mask 
 .router-fade-enter-active, .router-fade-leave-active 
-  transition: all .8s ease
+  transition: all .5s ease
 
 
 .router-fade-enter, .router-fade-leave-to
