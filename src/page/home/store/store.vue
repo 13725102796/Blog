@@ -18,6 +18,7 @@
           </keep-alive>
         </transition>
       </div>
+      <div id="loading"></div>
     </div>
     <!-- <div id="loading"></div> -->
     <div class="card-box">
@@ -34,10 +35,8 @@
         <!-- </a> -->
       </Scroll>
     </div>
-
-    <!-- <shop-card /> -->
     <div class="mask" v-if="tag !== 'Store'" @click="back"></div>
-    <!-- <div class="bottom"></div> -->
+    <div class="nomore" :class="[noMore ? 'leave' : 'entry']"><p> 没有数据了噢！</p></div>
   </div>
 </template>
 <script>
@@ -65,7 +64,9 @@ export default {
       // pageStart : 0, // 开始页数
       // pageEnd : 0, // 结束页数
       listdata: [], // 下拉更新数据存放数组
-      downdata: []  // 上拉更多的数据存放数组
+      downdata: [],  // 上拉更多的数据存放数组
+      noMore: false,
+      dispatch: 'getKtvStore',
     }
   },
   computed: {
@@ -81,6 +82,11 @@ export default {
     changeText(type,text) {
       console.log(type +',' + text)
       this[type] = text
+      //根据type.text 去对应请求,他们的数据。通过vuex去管理替换和保存
+      //保存分发的方法
+      this.dispatch = type + text
+      console.log(this.dispatch)
+
       this.back()
     },
     back(){
@@ -89,25 +95,40 @@ export default {
     },
     onRefresh(done) {
       //接受一个done的回调函数 ，请求完数据后，就调用
-      // this.getList();
+      
       setTimeout(()=>{
         done()
       },3000)
        // call done  
     },
     onInfinite(done) {
-      var data = []
-      setTimeout(()=>{     
-        if(data.length === 0) return done(0) 
-        done()
-      },3000)
+      this.getData('getKtvStore', done)
     },
+    getData(method,done) {
+      // this.$store.dispatch(method)
+      setTimeout(()=>{
+        if(true) {
+          done(0)
+          this.$toast('已经滑到底了喔！') 
+        } else {
+          done()
+        }
+      },1000)
+    }
   },
-  async mounted(){
-    // this.$loading()
-    await this.$store.dispatch('getKtvStore')
-    // console.log(this.ktvStore)
-  }
+  mounted(){
+    this.$loading()
+    const self = this
+    setTimeout(async ()=>{
+      console.log(this)
+      await this.$store.dispatch('getKtvStore')
+      //这个要更据获取数据的返回值判断
+      if(self.ktvStore.length === 0) {
+        self.noMore = true
+      }
+      self.$loading(false)
+    },2000)
+  },
 }
 </script>
 <style lang="sass" scoped>
@@ -150,6 +171,29 @@ export default {
   z-index: 99
 .mask 
   +mask 
+.nomore 
+  font-size: $small-size
+  padding: .3rem 0
+  color: #888
+  display: none
+.leave 
+  display: block
+  -webkit-animation: leave 2s ease
+  animation-fill-mode: forwards
+@keyframes entry 
+  from 
+    opacity: 0
+    transform: translateX(-20%)
+  to 
+    opacity: 1
+    transform: translateX(0)
+@keyframes leave
+  0%,100% 
+    opacity: 0
+    transform: translateY(-20%)
+  30%,70%
+    opacity: 1
+    transform: translateX(0)
 .router-fade-enter-active, .router-fade-leave-active 
   transition: all .5s ease
 

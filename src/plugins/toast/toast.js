@@ -11,11 +11,9 @@ export default {
           toast.$mount()
           document.querySelector('body').appendChild(toast.$el)
         }
-      }
-      
+      }     
       toast.delayed(msg,ms)
-      
-      
+            
     }
   }
 }

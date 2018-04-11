@@ -127,8 +127,12 @@ export default {
     onInfinite(done) {
       var data = []
       setTimeout(()=>{  
-        data.length === 0 ? done(0) : done()
-        this.$toast('已经滑到底了喔！')    
+        if(data.length === 0) {
+          done(0)
+          this.$toast('已经滑到底了喔！') 
+        } else {
+          done()
+        }       
       },1000)
     },
   }, 

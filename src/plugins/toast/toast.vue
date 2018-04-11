@@ -32,14 +32,12 @@ export default {
 <style lang="sass" scoped>
 @import '~@/assets/css/mixin.sass'
 .container
-  +mask(rgba(0,0,0,.3))
+  +mask(rgba(0,0,0,.3),9999)
   .position
     position: fixed
     left: 50%
     top: 50%
     transform: translate3d(-50%,-50%,0)
-    
-    
     font-size: $desc-size
     color: $desc-color
     p   

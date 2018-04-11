@@ -5,6 +5,9 @@ class Services {
   async getLike(token) {
    return await http.post('POST//like',{token: token})
   }
+  async getKtvStore (token) {
+    return await http.post('POST//ktv', {token,token})
+  }
 
 }
 

@@ -1,16 +1,22 @@
 <template>
   <div class="container">
-    <p :class="[tag === '全部' && 'active']" @click="handleSelect('全部')">全部</p>
-    <p :class="[tag === 'ktv' && 'active']" @click="handleSelect('ktv')">ktv</p>
+    <p v-for="(item, index) in tagData" :key="index" :class="[tag === index && 'active']" @click="handleSelect(index)">{{item}}</p>
+    <!-- <p :class="[tag === 'ktv' && 'active']" @click="handleSelect('ktv')">ktv</p>
     <p :class="[tag === '美业' && 'active']" @click="handleSelect('美业')">美业</p>
-    <p :class="[tag === '酒店' && 'active']" @click="handleSelect('酒店')">酒店</p>
+    <p :class="[tag === '酒店' && 'active']" @click="handleSelect('酒店')">酒店</p> -->
   </div>
 </template>
 <script>
 export default {
-    data(){
+  data(){
     return {
-      tag: '全部',
+      tag: 0
+    }
+  },
+  props: {
+    tagData: {
+      type: Array,
+      default: [1,2,3,4]
     }
   },
   methods: {

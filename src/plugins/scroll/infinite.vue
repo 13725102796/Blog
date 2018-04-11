@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import Loading from '@/plugins/loading/loading.vue'
 export default {
   mounted() {
     this.$loading()
@@ -74,9 +73,6 @@ export default {
         this.infinite()
       }
     }
-  },
-  components:{
-    Loading
   }
 }
 </script>

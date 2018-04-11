@@ -4,7 +4,7 @@ export default {
   //   state.address = address
   // },
   SET_KTVSTORE: (state, data) => {
-    state.ktvStore = data
+    state.ktvStore = state.ktvStore.concat(data)
   },
   SET_LIKE: (state, data) => {
     // console.log(state.like)

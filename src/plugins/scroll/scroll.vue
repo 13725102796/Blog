@@ -4,7 +4,7 @@
   @touchstart="touchStart($event)"
   @touchmove="touchMove($event)"
   @touchend="touchEnd($event)"
-  @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined">
+  @scroll="(enableInfinite && infiniteState) ? onScroll($event) : undefined">
     <section class="inner" :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }">
       <header class="pull-refresh" v-show="refreshShow">
         <slot name="pull-refresh">
@@ -22,11 +22,11 @@
         </slot>
       </header>
       <slot></slot>
-      <footer id="loading" class="load-more">
+      <footer id="loading" v-show="showLoad" class="load-more">
         <!-- <slot name="load-more">
           <span>加载中……</span>
         </slot> -->
-        <!-- <Loading /> -->
+        <Loading />
       </footer>
       <div></div>
     </section>
@@ -36,9 +36,6 @@
 <script>
 import Loading from '@/plugins/loading/loading.vue'
 export default {
-  mounted() {
-    this.$loading()
-  },
   props: {
     offset: {
       type: Number,
@@ -70,7 +67,9 @@ export default {
       startY: 0,  //保存开始滑动时，y轴位置
       touching: false,
       infiniteLoading: false,
-      refreshShow: true
+      refreshShow: true,
+      infiniteState: true,
+      showLoad: false
     }
   },
   created(){
@@ -80,7 +79,7 @@ export default {
   },
   methods: {
     touchStart(e) {
-      console.log(1)
+      // console.log(1)
       //记录手指触摸位置y轴位置
       if(!this.enableRefresh) return
       this.startY = e.targetTouches[0].pageY
@@ -89,7 +88,7 @@ export default {
       this.touching = true
     },
     touchMove(e) {
-      console.log(2)
+      // console.log(2)
       // console.log(e.preventDefault)
       // this.$el.scrollTop = 0 时代表复原在顶部
       // 这里控制是否可以上下拉    代表正在滑动 
@@ -138,7 +137,7 @@ export default {
       this.state = 0
       this.top = 0
       //下拉刷新后，对数据还原，获取第一页数据，重新注册滚轮事件
-      this.$loading()
+      
     },
 
     infinite() {
@@ -148,11 +147,12 @@ export default {
 
     infiniteDone(length) {
       const self = this 
-      this.infiniteLoading = false
-      console.log(length)
       if(length === 0) {
-        self.$loading(false)
+        //注销infinite事件
+        self.infiniteState = false
       }
+      this.showLoad = false
+      self.infiniteLoading = false 
     },
 
     onScroll(e) {
@@ -165,7 +165,10 @@ export default {
       let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-refresh').clientHeight : 0
       let infiniteHeight = this.$el.querySelector('.load-more').clientHeight
       let bottom = innerHeight - outerHeight - scrollTop - ptrHeight
-      if (bottom < infiniteHeight) this.infinite()
+      if (bottom < infiniteHeight ) {
+        this.showLoad = true
+        this.infinite()
+      }
     }
   },
   components:{

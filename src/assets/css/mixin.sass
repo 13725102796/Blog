@@ -18,14 +18,14 @@
 @mixin border-line ($px, $direction)
   border-#{$direction}: $px solid $border-color
 
-@mixin mask($color:#e2e2e2c7)
-  padding: 6px 0
-  z-index: 20
+@mixin mask($color:#e2e2e2c7,$zIndex: 20)
+  // padding: 0
+  z-index: $zIndex
   position: fixed
   top: 0
   left: 0
   right: 0
-  bottom: .2rem
+  bottom: 0
   background: $color
 
 @mixin animation ($name)
