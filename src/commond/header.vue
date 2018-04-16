@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <i class="goback" @click="goback()"></i>
-    <p>ktv</p>
+    <p>{{title}}</p>
   </div>
 </template>
 <script>
@@ -11,11 +11,17 @@ export default {
     goback(){
       this.$router.push({path: 'Home'})
     }
+  },
+  props: {
+    title: {
+      type: String,
+      default: '请输入title'
+    }
   }
 }
 </script>
 <style lang="sass" scoped>
-@impor '~@/assets/css/mixin.sass'
+@import '~@/assets/css/mixin.sass'
 .header
   background: #fff
   height: 1.2rem
@@ -40,6 +46,5 @@ export default {
     transform: translateY(-50%) rotate(45deg)
     border-left: .04rem solid $green-color
     border-bottom: .04rem solid $green-color
-    
 </style>
 

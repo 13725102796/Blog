@@ -11,7 +11,8 @@ export default {
           toast.$mount()
           document.querySelector('body').appendChild(toast.$el)
         }
-      }     
+      } 
+      toast.show = true      
       toast.delayed(msg,ms)
             
     }

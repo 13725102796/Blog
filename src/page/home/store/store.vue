@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper Store">
-    <Header />
+    <Header :title="'KTV'" />
     <div class="top">
       <div class="list-nav">
         <p class="item" :class="[tag === 'Classify' ? 'active' : 'icon']" @click="handleNav('Classify')">{{classify}}</p>
