@@ -60,5 +60,13 @@ LGTM：Look good to me 看起来不错，代码已review，可以合并
 * 指派开发者去修复这个Issues
 * 打标签 Labels Assignees 
 * 创建指定分支去维护
+
+# 在Fork到本地的代码，修复了bug后，推送到远程仓库，开始提交PR
+在远程仓库项目主页可以看到提交记录旁边存在两个按钮Contribute和Fetch-upstream
+点击Contribut -》 点击 Open pull request -》 Create pull request
+输入本次提交的标题和描述 -》 点击Create pull request
+
+此时 已经完成了PR的提交了
+原项目的管理者可以到项目的Pull request 去合并完成整个Issues的修复
   
 
