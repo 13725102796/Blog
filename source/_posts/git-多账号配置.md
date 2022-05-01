@@ -30,6 +30,25 @@ Host zc
     IdentityFile ~/.ssh/id_rsa
 ```
 只需要修改 IdentityFile 即可
-ssh -T git@zc 可以测试是否配置成功
-# 
+ssh -T git@github.com 可以测试是否配置成功
+`配置成功会显示当前用户名` 这个很重要，因为当你想切换用户的时候没有这个不行
+通过设置 
+git config --global user.name "13725102796"
+git config --global user.email "1439655764@qq.com"
+还没有生效，因为ssh-add的代理始终指向默认的
+# 通过ssh-add删除代理
+查看 ssh-add -l
+删除 ssh-add -D
+添加 
+ssh-add ~/.ssh/id_rsa 
+ssh-add ~/.ssh/137_id_rsa 
+
+# 添加代理后还不可以，需要修改提交的git clone ssh链接
+* 还没clone的可以通过 来拉取项目，这样可以让ssh-add正确代理
+git clone zy@:18820677498/Blog.git 
+原来是 git@github.com:18820677498/Blog.git
+
+* 已经clone的 可以切换到当前项目下，命令行执行
+`vim .git/config`
+打开config文件 按i去修改，按esc退出修改，再按 `:qw!` 保存修改  
 
