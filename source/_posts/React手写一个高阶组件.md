@@ -2,6 +2,8 @@
 title: React手写一个高阶组件
 date: 2020-08-17 16:04:50
 tags:  React HOC 
+categories: 
+- React
 ---
 
 # 高级组件是为了让数据和视图分离，这里以Clock为例

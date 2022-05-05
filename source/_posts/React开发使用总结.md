@@ -2,6 +2,8 @@
 title: React开发使用总结
 date: 2021-08-22 11:24:31
 tags: 
+categories: 
+- React
 ---
 
 # 首先在根index全局引入redux，router,css等

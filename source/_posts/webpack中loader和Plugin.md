@@ -2,6 +2,8 @@
 title: webpack中loader和Plugin
 date: 2020-08-25 10:17:14
 tags: webpack 
+categories: 
+- Webpack
 ---
 
 # Loader

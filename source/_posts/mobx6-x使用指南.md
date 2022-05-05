@@ -2,6 +2,8 @@
 title: mobx6.x使用指南
 date: 2021-04-16 09:30:41
 tags: mobx
+categories: 
+- React
 ---
 
 # 直接开启动态监听，与视图双向绑定

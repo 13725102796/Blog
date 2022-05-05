@@ -2,6 +2,9 @@
 title: 浏览器BOM和JS中的DOM
 date: 2018-05-14 10:09:35
 tags: BOM DOM
+categories: 
+- 浏览器 
+- JS
 ---
 
 JavaScript是一种运行在客户端的脚本语言 （Script 是脚本的意思）,它有三部分组成 ：ECMAScript 语法 ， DOM(页面文档对象模型) ，BOM(浏览器对象模型)而Web API则包含了DOM和BOM

@@ -2,6 +2,8 @@
 title: Redux 手记
 date: 2020-04-14 15:35:45
 tags: Redux
+categories: 
+- React
 ---
 
 # 什么是Redux 

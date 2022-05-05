@@ -2,6 +2,8 @@
 title: JS经典问题指南
 date: 2018-04-18 22:09:19
 tags: Javascript
+categories: 
+- JS
 ---
 
 ## JavaScript的数据类型

@@ -1,7 +1,9 @@
 ---
-title: 试图处理antd-mobile Issue的新路
+title: 试图处理antd-mobile Issue的心路历程
 date: 2022-05-05 11:00:18
 tags: Issue
+categories: 
+- Issue
 ---
 
 # 问题：antd-mobile Swiper 在滑动切换的时候，触发点击事件，会导致Swiper卡住

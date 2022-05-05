@@ -2,6 +2,8 @@
 title: React 组件生命周期
 date: 2022-04-17 16:21:34
 tags: React 生命周期
+categories: 
+- React
 ---
 # 常用单个组件的生命周期
 1. 初始化的生命周期

@@ -2,6 +2,8 @@
 title: 移动端1px像素
 date: 2018-05-26 19:33:47
 tags: 1px
+categories: 
+- Issue
 ---
 # 移动端1px像素起源
 在移动端，css中的1px并不等于移动设备的1px，因为手机屏幕有不同的像素密度。window中的devicePixelRatio就是反应css中像素与真实像素的比例，也就是设备物理像素和设备独立像素的比例，也就是 devicePixelRatio = 物理像素 / 独立像素。所以造成了通过css设置1px，在移动端屏幕上会变粗。

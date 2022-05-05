@@ -2,6 +2,9 @@
 title: JS事件机制与相关问题
 date: 2018-04-20 22:45:27
 tags: Javascript
+categories: 
+- 浏览器 
+
 ---
 
 ## 什么是事件代理/事件委托？

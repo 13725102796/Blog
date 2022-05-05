@@ -2,6 +2,8 @@
 title: Redux 为何需要其他辅助工具一起完成数据状态管理
 date: 2021-04-20 11:02:25
 tags: Redux 
+categories: 
+- React
 ---
 
 # Redux 为何需要其他辅助工具一起完成数据状态管理

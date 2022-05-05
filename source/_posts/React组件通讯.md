@@ -2,6 +2,8 @@
 title: React组件通讯
 date: 2021-09-22 11:49:28
 tags: 组件通讯
+categories: 
+- React
 ---
 
 # 父子组件通讯

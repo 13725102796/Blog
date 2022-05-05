@@ -2,6 +2,8 @@
 title: 提交PR完整流程
 date: 2022-04-30 13:39:11
 tags: PR
+categories: 
+- Issue
 ---
 
 # 首先，fork项目到本地

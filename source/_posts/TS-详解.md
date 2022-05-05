@@ -2,6 +2,8 @@
 title: TS 详解
 date: 2020-08-01 15:13:07
 tags: TS
+categories: 
+- TS
 ---
 
 # 参数类型注解 

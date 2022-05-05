@@ -2,6 +2,8 @@
 title: react基于content实现全局变量的方法
 date: 2020-05-16 22:41:24
 tags: react
+categories: 
+- React
 ---
 # 先生成一个context.js
 ``` bash 

@@ -2,6 +2,8 @@
 title: Vue 开发一个按钮组件
 date: 2019-02-13 22:56:17
 tags: Vue button
+categories: 
+- Vue
 ---
 # Vue 开发一个按钮组件
 解决思路：

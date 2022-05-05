@@ -2,6 +2,8 @@
 title: New操作符详解
 date: 2018-12-25 08:32:36
 tags: New
+categories: 
+- JS
 ---
 # new操作符做了什么
 

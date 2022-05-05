@@ -2,6 +2,8 @@
 title: git 多账号配置
 date: 2021-02-01 00:12:23
 tags: git
+categories: 
+- git
 ---
 # git 多账号账号切换使用
 * 解决密钥问题。默认只有一个密钥，二次创建会覆盖

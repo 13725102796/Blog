@@ -2,6 +2,8 @@
 title: Vue3 对比Vue2的提升
 date: 2021-03-27 09:39:50
 tags: Vue
+categories: 
+- Vue
 ---
 # 性能提升
 * 响应式系统提升

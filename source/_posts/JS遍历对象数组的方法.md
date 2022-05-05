@@ -2,6 +2,8 @@
 title: JS遍历数组的方法
 date: 2018-04-10 19:10:57
 tags: Array 
+categories: 
+- JS
 ---
 # js遍历数组的几种方法
 * for 最快

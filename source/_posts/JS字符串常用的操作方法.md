@@ -2,6 +2,8 @@
 title: JS字符串常用的操作方法
 date: 2018-04-14 16:04:43
 tags: String
+categories: 
+- JS
 ---
 # JS字符串常用的操作方法
 * str.charAt(index) 返回指定index下标的字符 下标从0开始

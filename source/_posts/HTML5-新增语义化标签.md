@@ -2,6 +2,8 @@
 title: HTML5 新增语义化标签
 date: 2018-05-22 11:16:00
 tags: HTML5
+categories: 
+- HTML
 ---
 # HTML5 新增语义化标签
 这种语义化标签主要是针对搜索引擎的

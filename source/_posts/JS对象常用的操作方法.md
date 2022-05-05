@@ -2,6 +2,8 @@
 title: JS对象常用的操作方法
 date: 2018-04-11 21:19:19
 tags: Object 
+categories: 
+- JS
 ---
 ## JS对象常用的操作方法
 * Object.assign(obj1,obj2) 对象合并，相同key后者替换前者

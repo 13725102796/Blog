@@ -1,7 +1,9 @@
 ---
 title: React-Toolkit 异步和数据获取的方法
-date: 2022-07-21 08:14:14
+date: 2021-07-21 08:14:14
 tags: React Redux Toolkit
+categories: 
+- React
 ---
 # Thunks 中间件 
 Thunks 内部可能有异步逻辑，例如setTimeout、Promises 和async/await. 这使它们成为将 AJAX 调用放入服务器 API 的好地方。

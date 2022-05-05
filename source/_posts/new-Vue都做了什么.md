@@ -2,6 +2,8 @@
 title: new Vue都做了什么
 date: 2020-07-29 09:06:43
 tags: Vue
+categories: 
+- Vue
 ---
 # new Vue初始化流程
 ``` bash

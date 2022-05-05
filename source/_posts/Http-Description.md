@@ -2,6 +2,8 @@
 title: Http版本区别与用户认证
 date: 2018-04-12 13:49:53
 tags: Http Https Session Cookie Token
+categories: 
+- 浏览器 
 ---
 # [Http版本区别与用户认证]() 
 HTTP协议(HyperTextTransferProtocol超文本传输协议)基于TCP/IP通信协议来传递数据

@@ -1,7 +1,9 @@
 ---
-title: Diff算法详解
+title: Vue Diff算法详解
 date: 2020-04-27 16:39:55
 tags: Vue
+categories: 
+- Vue
 ---
 # vue2: 递归+双指针
 * 判断是否是同一个元素 

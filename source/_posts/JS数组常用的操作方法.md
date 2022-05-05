@@ -2,6 +2,8 @@
 title: JS数组常用的操作方法
 date: 2018-04-13 11:38:05
 tags: Array
+categories: 
+- JS
 ---
 ## JS数组常用的操作方法
 * Array.length 获取数组长度

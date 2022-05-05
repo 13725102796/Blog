@@ -2,6 +2,8 @@
 title: JS操作DOM的方法与实践
 date: 2018-04-11 19:04:49
 tags: DOM 
+categories: 
+- JS
 ---
 ## DOM的基本介绍（提纲）
 ###  html文档中的内容以"树形结构"呈现,即大家常说的: 文档树;

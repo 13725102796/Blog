@@ -2,6 +2,8 @@
 title: React 配置本地代理
 date: 2020-08-20 23:34:59
 tags: React 代理
+categories: 
+- React
 ---
 
 # React配置代理

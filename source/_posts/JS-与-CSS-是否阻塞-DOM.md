@@ -2,6 +2,8 @@
 title: JS 与 CSS 是否阻塞 DOM
 date: 2019-04-14 11:06:45
 tags: CSS JS
+categories: 
+- 浏览器 
 ---
 浏览器的解析渲染过程，解析DOM生成DOM Tree，解析CSS生成CSSOM Tree，两者结合生成render tree渲染树，最后浏览器根据渲染树渲染至页面。
 

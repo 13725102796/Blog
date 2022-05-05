@@ -2,6 +2,8 @@
 title: Egg 的初步认识
 date: 2020-07-26 21:58:25
 tags: Egg
+categories: 
+- Node.js
 ---
 # Egg.js 是什么?
 Egg.js 为企业级框架和应用而生，我们希望由 Egg.js 孕育出更多上层框架，帮助开发团队和开发人员降低开发和维护成本。

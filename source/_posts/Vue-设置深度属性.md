@@ -2,6 +2,8 @@
 title: Vue 设置深度属性
 date: 2019-08-24 15:43:02
 tags: $set
+categories: 
+- Vue
 ---
 
 # $set的使用原理

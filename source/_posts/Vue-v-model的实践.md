@@ -2,6 +2,8 @@
 title: Vue v-model的实践
 date: 2020-04-13 23:00:42
 tags: Vue v-model
+categories: 
+- Vue
 ---
 # Vue v-model的实践
 v-model 只是语法糖，主要是通过input事件来触发input标签value值来实现我们说的“双向数据绑定”,其实它还是单向数据流。

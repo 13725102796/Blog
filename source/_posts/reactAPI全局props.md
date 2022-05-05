@@ -2,6 +2,8 @@
 title: reactAPI全局props
 date: 2020-04-7 15:00:19
 tags: react Context
+categories: 
+- React
 ---
 
 # createContext

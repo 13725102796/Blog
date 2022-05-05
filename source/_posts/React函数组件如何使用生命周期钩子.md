@@ -2,6 +2,8 @@
 title: React函数组件如何使用生命周期钩子
 date: 2020-08-21 21:28:16
 tags: useEffect useState Hook
+categories: 
+- React
 ---
 
 # useEffect Hook useState Hook

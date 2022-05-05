@@ -2,6 +2,8 @@
 title: Vue 组件通讯的方法
 date: 2021-03-13 23:29:45
 tags: Vue 组件通讯
+categories: 
+- Vue
 ---
 
 # Vue 组件通讯的方法
