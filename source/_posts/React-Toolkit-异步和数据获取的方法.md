@@ -29,6 +29,54 @@ Redux Toolkit 提供了一个createAsyncThunk API 来实现这些操作的创建
 }
 ``` 
 
+# 案例
+``` bash
+import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+const testApi = '/public/page/getHomePageModules'
+# 通过createAsyncThunk，创建一个异步的thunk
+export const fetchThunks = createAsyncThunk('thunks/fetchThunks', async () => {
+  const response = await axios.get(testApi,{})
+  return response.data
+})
+# 创建一个thubksSlice，里面包含initialState，reducers，extraReducers
+const thunksSlice = createSlice({
+  name: 'thunks',
+  initialState: {
+    posts: [],
+    status: 'idle',
+    error: null
+  },
+  reducers: {},
+  extraReducers(builder){
+    builder
+      .addCase(fetchThunks.pending,(state,action)=>{
+        state.status = 'loading'
+      })
+      .addCase(fetchThunks.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        // Add any fetched posts to the array
+        state.posts = state.posts.concat(action.payload)
+      })
+      .addCase(fetchThunks.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+  }
+})
+
+
+export default thunksSlice.reducer
+
+# 在组件中通过
+useDispatch()(fetchThunks()) 调用获取异步的数据
+# 当触发 fetchThunks 时，extraReducers会监听到该请求的状态，从而根据状态执行相应的操作。
+# 在使用了该reducer的state的组件的地方都会同步更新视图
+
+
+
+```
+
 
 
 
